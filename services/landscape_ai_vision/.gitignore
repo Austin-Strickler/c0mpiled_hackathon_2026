@@ -1,0 +1,14 @@
+# Secrets
+.env
+
+# Customer photos and results never go in git (they're customer data)
+samples/*
+!samples/.gitkeep
+outputs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/

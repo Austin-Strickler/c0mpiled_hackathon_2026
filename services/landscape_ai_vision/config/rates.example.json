@@ -1,0 +1,17 @@
+{
+  "_comment": "Example contractor rate table. In the real app these come from the contractor's published pricing version, not this file.",
+  "minimum_charge": 75,
+  "mulch_depth_in": 2,
+  "services": {
+    "mulch":           {"label": "Mulch install (2 in)",       "unit": "cubic_yard", "price": 85},
+    "weeding":         {"label": "Bed weeding",                "unit": "sqft",       "price": 0.35},
+    "shrub_trim":      {"label": "Shrub trimming",             "unit": "each",
+                        "price_by_size": {"small": 8, "medium": 15, "large": 30}},
+    "hedge_trim":      {"label": "Hedge trimming",             "unit": "linear_ft",  "price": 2.5},
+    "tree_trim":       {"label": "Small tree pruning",         "unit": "each",
+                        "price_by_size": {"small": 40, "medium": 90, "large": 200}},
+    "cleanup":         {"label": "Leaf and debris cleanup",    "unit": "sqft",       "price": 0.08},
+    "hardscape_clean": {"label": "Patio / paver cleaning",     "unit": "sqft",       "price": 0.30},
+    "edging":          {"label": "Bed edging",                 "unit": "flat",       "price": 45}
+  }
+}
