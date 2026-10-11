@@ -2,7 +2,7 @@
 
 B2B SaaS: lawn and snow operators embed a widget (or share a hosted page) that gives homeowners an instant price from the lawn they outline on an aerial photo of their address (Mapbox) and the operator's own rate table. Launch market: Pennsylvania.
 
-Source of truth for design decisions: `docs/ENGINEERING_DESIGN.md`. Legal, tax and licensing requirements (R1–R31): `docs/COMPLIANCE_REQUIREMENTS.md`. Read the relevant section before implementing a feature; update the Decisions table in the design doc when you make a call that isn't recorded there.
+Source of truth for design decisions: `docs/ENGINEERING_DESIGN.md`. Product direction and roadmap: `docs/PRODUCT_VISION.md`. Legal, tax and licensing requirements (R1–R31): `docs/COMPLIANCE_REQUIREMENTS.md`. Read the relevant section before implementing a feature; update the Decisions table in the design doc when you make a call that isn't recorded there.
 
 ## Non-negotiables
 
@@ -40,6 +40,7 @@ Source of truth for design decisions: `docs/ENGINEERING_DESIGN.md`. Legal, tax a
 - Monorepo: `apps/widget`, `apps/dashboard`, `packages/pricing`, `packages/api-contract` (zod schemas and types for every route), `packages/db` (schema, migrations, RLS tests), `services/lambdas`, `infra` (CDK).
 - Database suites run twice: over node-postgres with bound parameters, and with the statement text and row shapes of the Data API (`LQ_TEST_DRIVER=data-api-sql`). A handler must pass both; select json with `fromJson` and arrays through `to_jsonb`.
 - One branch per build step, always created from `main`. Never stack a branch on another open branch.
+- Five people share this repo, and every push to `main` deploys on Amplify. Never push or force-push `main`: work on a `<name>/<topic>` branch and land it through a pull request. Pull `main` before adding a migration and take the next free number. Full rules: `docs/git-workflow.md`.
 - Migrations are append-only after the step-1 commit: never edit a file in `packages/db/migrations`; add a new numbered one.
 - Pricing versions are immutable once published; edits create version n+1; quotes pin the version id.
 - Money is integer cents in the database and in `packages/pricing`; tax rates are integer basis points (600 for 6%). Format only at the edge.
