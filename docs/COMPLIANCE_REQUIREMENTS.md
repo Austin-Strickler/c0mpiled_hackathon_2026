@@ -124,18 +124,18 @@ Owner: Engine, UI, Data, Legal, Ops. Status: Not started, In progress, Done, Nee
 
 | # | Requirement | Owner | Status |
 | --- | --- | --- | --- |
-| R1 | Every service row has a `taxable` flag, seeded from the PA list above | Engine | Not started |
-| R2 | A quote stores line items with amount and taxable flag; tax is computed only on the taxable subtotal | Engine | Not started |
+| R1 | Every service row has a `taxable` flag, seeded from the PA list above | Engine | Built |
+| R2 | A quote stores line items with amount and taxable flag; tax is computed only on the taxable subtotal | Engine | Built |
 | R3 | The quote screen and emailed summary show taxable and non-taxable lines separately, never one bundled price | UI | Not started |
-| R4 | Tax rate is looked up from the service address's county (6% / 7% Allegheny / 8% Philadelphia) and stored on the quote | Engine | Not started |
+| R4 | Tax rate is looked up from the service address's county (6% / 7% Allegheny / 8% Philadelphia) and stored on the quote | Engine | Built |
 | R5 | Snow removal taxability confirmed before the winter product ships | Legal | Needs verify |
-| R6 | Quote screen is labeled an estimate; CTA is "request service"; no acceptance of terms or signature | UI | Not started |
+| R6 | Quote screen is labeled an estimate; CTA is "request service"; no acceptance of terms or signature | UI | Built ("Request service" CTA); revisit if instant booking ships ([[PRODUCT_VISION]]) |
 | R7 | Company profile has an optional HIC registration number, shown on non-taxable landscaping quotes | UI | Not started |
 | R8 | Any future accept-and-sign step for jobs over $500 renders every HICPA element, scoped as its own feature | UI | Not started |
 | R9 | HICPA coverage of landscaping vs. mowing confirmed by a PA attorney | Legal | Needs verify |
-| R10 | `parcel_cache` is a standalone table; quotes never foreign-key into it; it can be truncated without breaking a quote | Data | Not started |
+| R10 | `parcel_cache` is a standalone table; quotes never foreign-key into it; it can be truncated without breaking a quote | Data | Built |
 | R11 | (P2) Property-line tiles are streamed from Regrid at view time; nothing proxies or caches them to disk | Data | Not started |
-| R12 | Quotes store the confirmed estimate (`grass_sqft`, `origin`) as our own record, independent of the parcel cache | Data | Not started |
+| R12 | Quotes store the confirmed estimate (`grass_sqft`, `origin`) as our own record, independent of the parcel cache | Data | Built |
 | R13 | Retired with Regrid. In its place: the Mapbox public token is restricted to our origins, and usage is watched in the Mapbox account | Ops | Not started |
 | R14 | No parcel-search or parcel-browse feature is exposed to any user | UI | Not started |
 | R15 | Written confirmation from Mapbox that homeowner-drawn lawn outlines over its imagery are permitted, or the drawing step uses PEMA/NAIP imagery. Blocks launch since rev 2.4 | Legal | Needs verify |
